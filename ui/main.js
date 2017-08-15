@@ -19,7 +19,7 @@ button.onclick = function () {
         //not done yet
     };    
   //  Make a request
-  request.open('GET','http://susanta96.imad.hasura-app.io/ui/counter', true);
+  request.open('GET','http://susantvanu7278.imad.hasura-app.io/ui/counter', true);
   request.send(null);
 };
 
@@ -50,7 +50,7 @@ submit.onclick = function() {
   //  Make a request
   var nameInput = document.getElementById('name');
   var name = nameInput.value;
-  request.open('GET','http://susanta96.imad.hasura-app.io/submit-name?name=' + name, true);
+  request.open('GET','http://susantvanu7278.imad.hasura-app.io/submit-name?name=' + name, true);
   request.send(null);
   
   //capture a list of name and render it as a list
