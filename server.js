@@ -91,7 +91,7 @@ app.get('/', function (req, res) {
 });
 
 var counters = 0;
-app.get('/counter', function (req, res) {
+app.get('/ui/counter', function (req, res) {
   counters = counters + 1;
   res.send(counters.toString());
 });
