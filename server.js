@@ -58,7 +58,7 @@ app.get('/submit-name', function (req, res) {//URL: submit-name?name=xxx
 
 function hash(input){
   //how do we create a hash?  
-  var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
+  var hashed = crypto.pbkdf2Sync(input,'salt', 10000, 512, 'sha512');
   return hashed.toString('hex');
     
 }
