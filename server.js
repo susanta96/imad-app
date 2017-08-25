@@ -87,10 +87,11 @@ app.get('/submit-name', function (req, res) {//URL: submit-name?name=xxx
   res.send(JSON.stringify(names));
 });
 
-var pool= new Pool(config);
+
 app.get('/test-db',function(req,res)){
   //make a select req
   //return a response
+  var pool= new Pool(config);
   pool.query('SELECT * FROM test',function(err, result)){
       if(err){
           res.status(500).send(err.toString());
