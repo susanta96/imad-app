@@ -13,39 +13,7 @@ var config= {
     password: process.env.DB_PASSWORD,
 };
 
-var articles ={ 
-    'article-one':{
-        title: 'Article One | Susanta',
-        heading: 'Article One',
-        date: 'June 24, 2017',
-        content:` <p>
-                        This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                    </p>
-                    <p>
-                        This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                    </p>
-                    <p>
-                        This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                    </p>`
-    },
-    'article-two':{
-         title: 'Article Two | Susanta',
-        heading: 'Article Two',
-        date: 'June 29, 2017',
-        content:` <p>
-                        This is the content for my second article.This is the content for my second article.This is the content for my first article.This is the content for my first article.This is the content for my second article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                </p>`
-                  
-    },
-    'article-three':{
-         title: 'Article Three | Susanta',
-        heading: 'Article Three',
-        date: 'July 9, 2017',
-        content:` <p>
-                        This is the content for my Third article.
-                </p>`
-    }
-};
+
 
 function createTemplate(data){
 var title=data.title;
@@ -107,7 +75,7 @@ app.get('/articles/:articleName',function(req, res) {
     //articles[articleName]=={} content obj of article One
     var articleName = req.params.articleName;
     
-    pool.query("SELECT * FROM article WHERE title='" +req.params.articleName+"'" ,function(err,result){
+    pool.query("SELECT * FROM article WHERE title=$1", [req.params.articleName] ,function(err,result){
         if(err){
             res.status(500).send(err.toString());
         } else{
