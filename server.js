@@ -2,9 +2,9 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var app = express();
-var Pool=require('pg').Pool;
 app.use(morgan('combined'));
 
+var Pool=require('pg').Pool;
 var config= {
     user: 'susantvanu7278',
     database: 'susantvanu7278',
@@ -95,7 +95,7 @@ app.get('/test-db',function(req,res)){
       if(err){
           res.status(500).send(err.toString());
       }else{
-          res.send(JSON.stringify(result));
+          res.send(JSON.stringify(result,rows));
       }
   });
 });
